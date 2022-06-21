@@ -7,7 +7,9 @@ const signIp = async (req, res, next) => {
 
     const ip = await req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(':').pop();
 
-    const [rows, fields] = await pool.promise().query('SELECT * FROM ci_sessions WHERE ip_address = ?;', [ip])
+    // const [rows, fields] = await pool.query('SELECT * FROM ci_sessions WHERE id = ?;', [ci_session])
+
+    const [rows, fields] = await pool.query('SELECT * FROM ci_sessions WHERE ip_address = ?;', [ip])
 
     if (!rows) {
       res.json("ERROR REQUEST")

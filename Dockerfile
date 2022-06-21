@@ -1,9 +1,9 @@
 FROM node:18-alpine
 
-EXPOSE 8888
-
 WORKDIR /cloudStorage
 COPY . .
 RUN npm i
 
-CMD ["node", "/cloudStorage/src/app.js"]
+EXPOSE 8888
+
+CMD [ "npm", "start" ]

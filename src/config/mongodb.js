@@ -5,13 +5,6 @@ const mongoConnect = () => {
   mongoose.connect(DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }, (err, res) => {
-    if (!err) {
-      console.log('---- MONGODB IS CONNECTED ----')
-    }
-    else {
-      console.log('---- ERROR CONEXION ----')
-    }
   });
 };
 
