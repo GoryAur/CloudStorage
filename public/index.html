@@ -4,9 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test</title>
+  <link rel="stylesheet" href="main.css">
+  <title>Descargar Archivo Remoto</title>
 </head>
 <body>
-  <h1>Hey!</h1>
+  <h1>Descargar Archivo Remoto</h1>
+  
+
+  <form id="downloadForm">
+    <label for="fileUrl">URL del Archivo Remoto:</label>
+    <input type="text" id="fileUrl" name="fileUrl">
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
+    <button type="submit">Descargar Archivo</button>
+  </form>
+  
+  <!-- <script src="main.js"></script> -->
+  <script src="script.js"></script>
+
 </body>
+
 </html>

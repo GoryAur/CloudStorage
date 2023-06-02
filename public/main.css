@@ -1,0 +1,68 @@
+body {
+  background-image: url('https://www.xtrafondos.com/wallpapers/escenario-de-the-last-of-us-11552.jpg');
+  background-size: cover;
+  background-position: initial;
+  background-repeat: no-repeat;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+button {
+  background-color: #420505;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #720909;
+}
+
+#progressBarContainer {
+  width: 400px;
+  height: 20px;
+  background-color: #333333;
+  margin-bottom: 24px;
+  border-radius: 20px;
+}
+
+#progressBar {
+  width: 0;
+  height: 100%;
+  background-color: #29a329;
+  border-radius: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
