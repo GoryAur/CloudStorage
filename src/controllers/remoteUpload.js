@@ -5,7 +5,9 @@ const path = require('path');
 const url = require('url');
 require('dotenv').config();
 
-const wss = new WebSocket.Server({ port: 3000 });
+const port = process.env.PORT_WEBSOCKET
+
+const wss = new WebSocket.Server({ port });
 
 wss.on('connection', (ws) => {
   console.log('Cliente conectado');

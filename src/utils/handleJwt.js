@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-const JWT_SECRET = 'gorila'
+const secret = process.env.SECRET
+
+const JWT_SECRET = secret
 
 const tokenSign = (file) => {
   try {
