@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
 const StorageScheme = new mongoose.Schema(
   {
@@ -16,6 +16,4 @@ const StorageScheme = new mongoose.Schema(
   }
 );
 
-const storageModel = mongoose.model("storage", StorageScheme);
-
-module.exports = storageModel
+export const storageModel = mongoose.model("storage", StorageScheme);

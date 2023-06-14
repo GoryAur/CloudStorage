@@ -1,6 +1,7 @@
 {
   "name": "cloudstorage",
   "version": "1.0.0",
+  "type": "module",
   "description": "testing some shit",
   "main": "index.js",
   "scripts": {

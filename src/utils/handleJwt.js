@@ -1,11 +1,12 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
+import jwt from 'jsonwebtoken'
+import { config } from 'dotenv'
+config()
 
 const secret = process.env.SECRET
 
 const JWT_SECRET = secret
 
-const tokenSign = (file) => {
+export const tokenSign = (file) => {
   try {
     const sign = jwt.sign(
       {
@@ -22,15 +23,10 @@ const tokenSign = (file) => {
   }
 }
 
-const verifyToken = (token) => {
+export const verifyToken = (token) => {
   try {
     return jwt.verify(token, JWT_SECRET)
   } catch (e) {
     console.log(e);
   }
-}
-
-module.exports = {
-  tokenSign,
-  verifyToken
 }

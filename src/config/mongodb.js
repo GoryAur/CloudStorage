@@ -1,11 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
-const mongoConnect = () => {
+export const mongoConnect = () => {
   const DB_URI = process.env.DB_URI;
   mongoose.connect(DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
 };
-
-module.exports = mongoConnect;

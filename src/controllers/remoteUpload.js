@@ -1,13 +1,14 @@
-const https = require('https');
-const fs = require('fs');
-const WebSocket = require('ws');
-const path = require('path');
-const url = require('url');
-require('dotenv').config();
+import https from 'https'
+import fs from 'fs'
+import WebSocket from 'ws'
+import path from 'path'
+import url from 'url'
+import { config } from 'dotenv'
+config()
 
 const port = process.env.PORT_WEBSOCKET
 
-const wss = new WebSocket.Server({ port });
+export const wss = new WebSocket.Server({ port });
 
 wss.on('connection', (ws) => {
   console.log('Cliente conectado');
@@ -56,7 +57,3 @@ wss.on('connection', (ws) => {
     }
   });
 });
-
-module.exports = {
-  wss
-}

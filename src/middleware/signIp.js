@@ -1,8 +1,8 @@
-const ipModel = require('../models/ipUsers');
-const { tokenSign } = require('../utils/handleJwt');
-const pool = require('../config/mysql');
+import { ipModel } from '../models/ipUsers.js'
+import { tokenSign } from '../utils/handleJwt.js'
+import { pool } from '../config/mysql.js'
 
-const signIp = async (req, res, next) => {
+export const signIp = async (req, res, next) => {
   try {
 
     const ip = await req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(':').pop();
@@ -42,5 +42,3 @@ const signIp = async (req, res, next) => {
     console.log(e);
   }
 }
-
-module.exports = signIp

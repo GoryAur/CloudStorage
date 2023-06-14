@@ -1,11 +1,9 @@
-const { Router } = require('express');
-const getFiles = require('../controllers');
-const signIp = require('../middleware/signIp');
-const streaming = require('../controllers/stream');
+import { Router } from 'express'
+import { getFiles } from '../controllers'
+import { signIp } from '../middleware/signIp.js'
+import { streaming } from '../controllers/stream.js'
 
-const router = Router()
+export const router = Router()
 
 router.get('/:file', signIp, getFiles)
 // router.get('/video/:file', streaming)
-
-module.exports = router

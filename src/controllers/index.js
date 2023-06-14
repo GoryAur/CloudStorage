@@ -1,7 +1,7 @@
-const path = require('path');
-const { verifyToken } = require('../utils/handleJwt');
+import path from 'path'
+import { verifyToken } from '../utils/handleJwt.js'
 
-const getFiles = async (req, res) => {
+export const getFiles = async (req, res) => {
   try {
 
     const token = req.token
@@ -32,5 +32,3 @@ const getFiles = async (req, res) => {
     console.log(e);
   }
 }
-
-module.exports = getFiles

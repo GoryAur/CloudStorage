@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
 const IpScheme = new mongoose.Schema(
   {
@@ -13,6 +13,4 @@ const IpScheme = new mongoose.Schema(
   }
 );
 
-const ipModel = mongoose.model("ipUsers", IpScheme);
-
-module.exports = ipModel
+export const ipModel = mongoose.model("ipUsers", IpScheme);

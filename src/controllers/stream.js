@@ -1,9 +1,9 @@
-const path = require('path');
-const fs = require('fs');
+import fs from 'fs'
+import path from 'path'
 
 const PATH = path.join(`${__dirname}/../storage`)
 
-const streaming = (req, res) => {
+export const streaming = (req, res) => {
   const path = `${PATH}/${req.params.file}`
   const stat = fs.statSync(path)
   const fileSize = stat.size
@@ -33,5 +33,3 @@ const streaming = (req, res) => {
     fs.createReadStream(path).pipe(res)
   }
 };
-
-module.exports = streaming
