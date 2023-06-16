@@ -1,14 +1,18 @@
 import https from 'https'
 import fs from 'fs'
-import WebSocket from 'ws'
+import { WebSocketServer, WebSocket } from 'ws'
 import path from 'path'
-import url from 'url'
+import { fileURLToPath, parse } from 'url';
+import { dirname } from 'path';
 import { config } from 'dotenv'
 config()
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const port = process.env.PORT_WEBSOCKET
 
-export const wss = new WebSocket.Server({ port });
+export const wss = new WebSocketServer({ port });
 
 wss.on('connection', (ws) => {
   console.log('Cliente conectado');
@@ -19,11 +23,11 @@ wss.on('connection', (ws) => {
       if (ws.readyState === WebSocket.OPEN) {
         try {
           const fileUrl = decodedMessage; // Reemplaza con la URL del archivo que deseas descargar
-          const parsedUrl = url.parse(fileUrl);
+          const parsedUrl = parse(fileUrl);
           const filename = path.basename(parsedUrl.pathname);
           const fileExtension = path.extname(filename);
           const fileNameWithoutExtension = path.basename(filename, fileExtension);
-          const destinationPath = path.join(`${__dirname}../../../videos/${filename}`); // Reemplaza con la ruta y nombre de archivo de destino
+          const destinationPath = path.join(`${__dirname}/../storage/${filename}`); // Reemplaza con la ruta y nombre de archivo de destino
 
           const file = fs.createWriteStream(destinationPath);
 
@@ -56,4 +60,8 @@ wss.on('connection', (ws) => {
       }
     }
   });
+});
+
+wss.on('listening', () => {
+  console.log('Servidor WebSocket en funcionamiento');
 });

@@ -1,5 +1,11 @@
-import path from 'path'
 import { verifyToken } from '../utils/handleJwt.js'
+import { streaming } from './stream.js'
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 export const getFiles = async (req, res) => {
   try {
@@ -22,10 +28,12 @@ export const getFiles = async (req, res) => {
     }
 
     const options = {
-      root: path.join(`${__dirname}/../storage`)
+      root: join(`${__dirname}/../storage`)
     }
 
-    await res.sendFile(req.params.file, options)
+    await streaming(req, res)
+
+    //await res.sendFile(req.params.file, options)
 
   } catch (e) {
     res.json("ERROR GETTING FILE")

@@ -1,9 +1,16 @@
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-const PATH = path.join(`${__dirname}/../storage`)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-export const streaming = (req, res) => {
+const PATH = join(`${__dirname}/../storage`);
+
+//const PATH = path.join(`${__dirname}/../storage`)
+
+export const streaming = async (req, res) => {
   const path = `${PATH}/${req.params.file}`
   const stat = fs.statSync(path)
   const fileSize = stat.size
