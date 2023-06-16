@@ -9,7 +9,7 @@ export const signIp = async (req, res, next) => {
 
     // const [rows, fields] = await pool.query('SELECT * FROM ci_sessions WHERE id = ?;', [ci_session])
 
-    const [rows, fields] = await pool.query('SELECT * FROM ci_sessions WHERE ip_address = "190.90.160.162";')
+    const [rows, fields] = await pool.query('SELECT * FROM ci_sessions WHERE ip_address = ?;', [ip])
 
     if (!rows) {
       res.json("ERROR REQUEST")
@@ -20,6 +20,7 @@ export const signIp = async (req, res, next) => {
       token: tokenSign(rows[rows.length - 1]),
       ip: rows[rows.length - 1]
     }
+
     // const dataIp = await ipModel.findOne({ ip })
 
     // const data = {
